@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `s390x` builds of [the `sapmachine` official image](https://hub.docker.com/_/sapmachine) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -24,8 +26,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`15`, `latest`](https://github.com/SAP/SapMachine-infrastructure/blob/95ec452431d7843d3ad424884a81ba5d61992753/dockerfiles/official/stable/Dockerfile)
--	[`11`, `11.0.8`, `lts`](https://github.com/SAP/SapMachine-infrastructure/blob/cd2ca5e0de3ca0b167aba34661f1b8f37210f66a/dockerfiles/official/lts/Dockerfile)
+**WARNING:** THIS IMAGE *IS NOT SUPPORTED* ON THE `s390x` ARCHITECTURE
+
+[![s390x/sapmachine build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/s390x/job/sapmachine.svg?label=s390x/sapmachine%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/s390x/job/sapmachine/)
 
 # Quick reference (cont.)
 
@@ -63,14 +66,14 @@ Java and all Java-based trademarks and logos are trademarks or registered tradem
 You can pull and test the image with the following commands:
 
 ```console
-docker pull sapmachine:latest
-docker run -it sapmachine:latest java -version
+docker pull s390x/sapmachine:latest
+docker run -it s390x/sapmachine:latest java -version
 ```
 
 You can also use the SapMachine image as a base image to run your own jar file:
 
 ```dockerfile
-FROM sapmachine:latest
+FROM s390x/sapmachine:latest
 RUN mkdir /opt/myapp
 COPY myapp.jar /opt/myapp
 CMD ["java", "-jar", "/opt/myapp/myapp.jar"]
